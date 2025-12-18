@@ -16,6 +16,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
      fun showToast() {
-        Toast.makeText(this, "Button clicked! Congrats!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Time to Start Your Pokemon Journey!", Toast.LENGTH_SHORT).show()
     }
 }
