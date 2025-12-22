@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Profile Title -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="126dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Profile"
+        android:textAlignment="center"
+        android:textColor="#020202"
+        android:textSize="34sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Profile Image -->
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="151dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/pfp_snip" />
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Roshinwel Myles V. Larga"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Email -->
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="roshinwelmyles@gmail.com"
+        android:textColor="#2196F3"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Personal Information Header -->
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="36dp"
+        android:text="Account Settings"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+    <TextView
+        android:id="@+id/itemTitle"
+        android:layout_width="347dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="16dp"
+        android:text="Personal Information"
+        android:textColor="#050505"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/itemArrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView4" />
+
+    <ImageView
+        android:id="@+id/itemArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/itemTitle"
+        app:layout_constraintBottom_toBottomOf="@id/itemTitle"/>
+
+    <LinearLayout
+        android:id="@+id/itemContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/itemTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/detailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name: Roshinwel Myles V. Larga"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/detailAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age: 23 Years Old"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/detailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address: Brgy. Dulong Bayan, Bacoor City, Cavite"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/detailMarital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marital Status: Single"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <!-- Education Header -->
+    <TextView
+        android:id="@+id/educationTitle"
+        android:layout_width="346dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="16dp"
+        android:text="Education"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/educationArrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemContent" />
+
+    <ImageView
+        android:id="@+id/educationArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/educationTitle"
+        app:layout_constraintBottom_toBottomOf="@id/educationTitle"/>
+
+    <LinearLayout
+        android:id="@+id/educationContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/educationTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/detailDegree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Degree: Bachelor's Degree"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/detailProgram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Program: Information Technology"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/detailUniversity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="University: Polytechnic University of the Philippines"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/detailBranch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Branch: Parañaque City Campus"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <!-- Hobbies Header -->
+    <TextView
+        android:id="@+id/hobbiesTitle"
+        android:layout_width="346dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="16dp"
+        android:text="Hobbies"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/hobbiesArrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/educationContent" />
+
+    <ImageView
+        android:id="@+id/hobbiesArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/hobbiesTitle"
+        app:layout_constraintBottom_toBottomOf="@id/hobbiesTitle"/>
+
+    <LinearLayout
+        android:id="@+id/hobbiesContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/hobbiesTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/hobby1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gaming"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/hobby2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Watching Movies/Series"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/hobby3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sports (Volleyball, Basketball, Billiards)"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="138dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="36dp"
+        android:text="@string/button1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbiesTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
