@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C8E6C9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30sp"
+            android:textColor="#000"
+            android:textSize="34sp"
+            android:text="Fitness Routines" />
+
+        <!-- Example additional content -->
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            app:srcCompat="@drawable/fitness" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Workout 1: Cardio"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:text="Incorporating cardio exercise into your routine offers comprehensive benefits: it strengthens the heart and lungs, helps maintain a healthy weight, improves mental health, supports blood sugar and cholesterol control, and contributes to longer life and overall well-being." />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="305dp"
+            app:srcCompat="@drawable/cardio" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Workout 2: Strength Training"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:text="Core workouts are beneficial because they strengthen the muscles around your spine and torso, improving posture, balance, and stability. A strong core supports other exercises, enhances overall strength, and makes everyday movements like bending, twisting, or lifting easier and safer. Additionally, it helps prevent injuries by protecting your back and joints, making your body more efficient and resilient during both daily activities and athletic performance.
+"/>
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            app:srcCompat="@drawable/core_exercises" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Workout 3: Yoga"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:text="Yoga is beneficial for flexibility because it involves stretching and holding poses that gradually lengthen muscles and improve joint range of motion. Regular practice helps release tension, increases muscle elasticity, and promotes better posture and balance. Over time, yoga not only makes the body more limber but also reduces the risk of injury and enhances overall physical performance.
+" />
+
+    </LinearLayout>
+</ScrollView>

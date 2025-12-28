@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFCDD2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30sp"
+            android:textColor="#000"
+            android:textSize="34sp"
+            android:text="Health Tips" />
+
+        <!-- Example additional content -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tip 1: Avoid  Smoking."
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="129dp"
+            app:srcCompat="@drawable/no_smoking" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tip 2: Take Vitamins and Boosters"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="189dp"
+            app:srcCompat="@drawable/vitamins" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tip 3: Sleep well"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="match_parent"
+            android:layout_height="394dp"
+            app:srcCompat="@drawable/sleep_stages" />
+
+    </LinearLayout>
+</ScrollView>

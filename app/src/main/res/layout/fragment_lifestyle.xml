@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE0B2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30sp"
+            android:text="Lifestyle Habits"
+            android:textColor="#000"
+            android:textSize="34sp" />
+
+        <!-- Add more TextViews, images, or content here as needed -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/oip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="• BALANCED NUTRITION"
+            android:textColor="#000"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="252dp"
+            android:layout_height="138dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/adult_eng" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Eat Whole Foods: Focus on a diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats. Aim to incorporate a variety of foods to ensure you get all necessary nutrients. \n\n Stay Hydrated: Drink plenty of water throughout the day to support digestion, energy levels, and overall health."
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="• PHYSICALLY ACTIVE"
+            android:textColor="#000"
+            android:textSize="22sp"/>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="353dp"
+            android:layout_height="279dp"
+            app:srcCompat="@drawable/pf" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="335dp"
+            android:layout_height="121dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Exercise Consistently: Aim for at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. Include strength training exercises at least twice a week."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000"
+            android:textSize="22sp"
+            android:text="Mental and Emotional Health:" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/peace" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="335dp"
+            android:layout_height="121dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Practice Self-Care: Engage in activities that reduce stress and promote relaxation, such as meditation, yoga, or spending time with loved ones.\n\n Seek Support: Don’t hesitate to reach out for help from friends, family, or professionals when needed." />
+
+
+    </LinearLayout>
+</ScrollView>
