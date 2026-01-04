@@ -1,8 +1,8 @@
 package com.example.miniprofile
 
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,30 +10,49 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<ImageView>(R.id.arrowPersonal).setOnClickListener {
-            openFragment("personal")
-        }
-
-        findViewById<ImageView>(R.id.arrowEducation).setOnClickListener {
-            openFragment("education")
-        }
-
-        findViewById<ImageView>(R.id.arrowHobbies).setOnClickListener {
-            openFragment("hobbies")
-        }
-    }
-
-    private fun openFragment(type: String) {
-        val fragment = InfoFragment()
-
-        val bundle = Bundle()
-        bundle.putString("type", type)
-        fragment.arguments = bundle
-
-        // 🔑 THIS IS THE IMPORTANT CHANGE
+        // 1️⃣ Set default fragment (ProfileFragment)
         supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, fragment)
-            .addToBackStack(null)
+            .replace(R.id.fragmentContainer, ProfileFragment())
             .commit()
+
+        // 2️⃣ Find the BottomNavigationView
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+
+        // 3️⃣ Handle menu item clicks
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menu_profile -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, ProfileFragment())
+                        .commit()
+                    true
+                }
+                R.id.menu_personal -> {
+                    val fragment = InfoFragment()
+                    fragment.arguments = Bundle().apply { putString("type", "personal") }
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, fragment)
+                        .commit()
+                    true
+                }
+                R.id.menu_education -> {
+                    val fragment = InfoFragment()
+                    fragment.arguments = Bundle().apply { putString("type", "education") }
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, fragment)
+                        .commit()
+                    true
+                }
+                R.id.menu_hobbies -> {
+                    val fragment = InfoFragment()
+                    fragment.arguments = Bundle().apply { putString("type", "hobbies") }
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer, fragment)
+                        .commit()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }
