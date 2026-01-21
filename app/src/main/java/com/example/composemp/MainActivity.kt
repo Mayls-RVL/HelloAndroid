@@ -6,72 +6,40 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.snapping.SnapPosition
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.autofill.ContentType
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.example.composemp.ui.theme.ComposeMPTheme
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Text
-import androidx.compose.foundation.layout.*
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-
-
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            header()
+            AppNavigation()
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Welcome, $name!")
-}
-
-@Composable
-fun GreetingContainer() {
-    Greeting(name = "User")
-}
-
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun header() {
+fun header(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Mini Profile") })
@@ -86,86 +54,71 @@ fun header() {
             item { title1() }
 
             items(AcS) { profileSettings ->
-                SettingsCard(title = profileSettings.name)
+                SettingsCard(
+                    title = profileSettings.name,
+                    onClick = {
+                        when (profileSettings.name) {
+                            "Personal Information" ->
+                                navController.navigate("personal_info") { launchSingleTop = true }
+                            "Education" ->
+                                navController.navigate("education") { launchSingleTop = true }
+                            "Hobbies" ->
+                                navController.navigate("hobbies") { launchSingleTop = true }
+                            "Time Spent" ->
+                                navController.navigate("time_spent") { launchSingleTop = true }
+                        }
+                    }
+                )
             }
+
             item { title2() }
+
             items(Ast) { otherSettings ->
-                SettingsCard(title = otherSettings.name)
+                SettingsCard(
+                    title = otherSettings.name,
+                    onClick = {
+                        when (otherSettings.name) {
+                            "Terms and Conditions" ->
+                                navController.navigate("terms") { launchSingleTop = true }
+                            "Privacy Policy" ->
+                                navController.navigate("privacy") { launchSingleTop = true }
+                            "FAQ and Help" ->
+                                navController.navigate("faq") { launchSingleTop = true }
+                        }
+                    }
+                )
             }
         }
     }
 }
 
-
-
-
-
 @Composable
-fun Pfp() {
-    Image(
-        painter = painterResource(id = R.drawable.pfp_snip),
-        contentDescription = "Profile picture"
-    )
-}
-
-@Composable
-fun Fname() {
-    Text(text = stringResource(id = R.string.full_name))
-}
-
-@Composable
-fun hlink() {
-    Text(
-        text = stringResource(id = R.string.email),
-        color = Color(0xFF64B5F6),
-        textDecoration = TextDecoration.Underline,
-        modifier = Modifier.clickable {
-            // handle click here
-        }
-    )
-}
-
-
-@Composable
-fun title1() {
-    Text(
-        text = "Profile Settings",
-        fontSize = 18.sp,
-        fontWeight = FontWeight.Bold,
-        modifier = Modifier.padding(top = 20.dp)
-    )
-}
-@Composable
-fun title2(){
-    Text(
-        text = "Account Details",
-        fontSize = 18.sp,
-        fontWeight = FontWeight.Bold,
-        modifier = Modifier.padding(top = 20.dp)
-    )
-}
-
-
-@Composable
-fun SettingsCard(title: String) {
+fun SettingsCard(
+    title: String,
+    onClick: () -> Unit
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 6.dp),
+            .padding(vertical = 6.dp)
+            .clickable { onClick() },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Text(
-            text = title,
+        Row(
             modifier = Modifier.padding(16.dp),
-            fontSize = 16.sp
-        )
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(text = title, modifier = Modifier.weight(1f))
+            Icon(
+                imageVector = Icons.Filled.ChevronRight,
+                contentDescription = null,
+                tint = Color.Gray
+            )
+        }
     }
 }
 
-
-
 data class AccSet(val name: String)
-
 data class AssT(val name: String)
 
 val AcS = listOf(
@@ -178,23 +131,203 @@ val AcS = listOf(
 val Ast = listOf(
     AssT("Terms and Conditions"),
     AssT("Privacy Policy"),
-    AssT("FAQ and Help"),
-    AssT("Contact us")
+    AssT("FAQ and Help")
 )
-
 
 @Composable
 fun UserDeets() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxWidth() // ✅ FIXED
     ) {
-        Pfp()
+        Image(
+            painter = painterResource(id = R.drawable.pfp_snip),
+            contentDescription = null
+        )
         Spacer(modifier = Modifier.height(8.dp))
-        Fname()
+        Text(stringResource(id = R.string.full_name))
         Spacer(modifier = Modifier.height(4.dp))
-        hlink()
+        Text(
+            text = stringResource(id = R.string.email),
+            color = Color(0xFF64B5F6),
+            textDecoration = TextDecoration.Underline
+        )
     }
 }
 
+@Composable fun title1() = Text("Profile Settings", fontSize = 18.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 12.dp))
+@Composable fun title2() = Text("Account Details", fontSize = 18.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 10.dp))
+
+@Composable
+fun AppNavigation() {
+    val navController = rememberNavController()
+
+    NavHost(
+        navController = navController,
+        startDestination = "home"
+    ) {
+
+        // Home
+        composable("home") {
+            header(navController)
+        }
+
+        // Profile settings
+        composable("personal_info") {
+            PersonalInformationScreen(navController)
+        }
+        composable("education") {
+            EducationScreen(navController)
+        }
+        composable("hobbies") {
+            HobbiesScreen(navController)
+        }
+        composable("time_spent") {
+            TimeSpentScreen(navController)
+        }
+
+        // Account details
+        composable("privacy") {
+            PrivacyPolicyScreen(navController)
+        }
+        composable("terms") {
+            TermsScreen(navController)
+        }
+        composable("faq") {
+            FAQScreen(navController)
+        }
+    }
+}
+
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ScreenTemplate(title: String) {
+    Scaffold(
+        topBar = { TopAppBar(title = { Text(title) }) }
+    ) { padding ->
+        Text(
+            text = "$title Screen",
+            modifier = Modifier.padding(padding)
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun PersonalInformationScreen(navController: NavController) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Personal Information") }
+            )
+        }
+    ) { padding ->
+        Text(
+            text = "Edit your personal information here",
+            modifier = Modifier.padding(padding)
+        )
+    }
+}
+
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun EducationScreen(navController: NavController) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Education") }
+            )
+        }
+    ) { padding ->
+        Text(
+            text = "Edit your personal information here",
+            modifier = Modifier.padding(padding)
+        )
+    }
+}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun HobbiesScreen(navController: NavController) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Hobbies") }
+            )
+        }
+    ) { padding ->
+        Text(
+            text = "Edit your personal information here",
+            modifier = Modifier.padding(padding)
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TimeSpentScreen(navController: NavController) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Hours Spent") }
+            )
+        }
+    ) { padding ->
+        Text(
+            text = "Edit your personal information here",
+            modifier = Modifier.padding(padding)
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TermsScreen(navController: NavController) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Terms & Conditions") }
+            )
+        }
+    ) { padding ->
+        Text(
+            text = "Edit your personal information here",
+            modifier = Modifier.padding(padding)
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun PrivacyPolicyScreen(navController: NavController) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Privacy Policy") }
+            )
+        }
+    ) { padding ->
+        Text(
+            text = "Edit your personal information here",
+            modifier = Modifier.padding(padding)
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FAQScreen(navController: NavController) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("FAQ and Help") }
+            )
+        }
+    ) { padding ->
+        Text(
+            text = "Edit your personal information here",
+            modifier = Modifier.padding(padding)
+        )
+    }
+}
